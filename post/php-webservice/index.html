@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>七彩旋律</title>
+<title>PHP 调用https类型webservice接口 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1597915835317">
 
@@ -25,11 +25,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -85,19 +85,106 @@
     </div>
 </nav>
 
-        <div class="post-container">
-            <div class="post-detail gt-bg-theme-color-first">
-                <article class="gt-post-content">
-                    <h2 class="post-title">标签</h2>
-        <div class="tags-container">
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://mycodemylife.github.io/tag/EQxUBNp6j/">#PHP</a>
-            
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    PHP 调用https类型webservice接口
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-08-20 ·
+                    </time>
+                    
+                        <a href="https://mycodemylife.github.io/tag/EQxUBNp6j/" class="post-tags">
+                            # PHP
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <pre><code class="language-php">$opts = array (
+			'ssl' =&gt; array (
+					'ciphers' =&gt; 'RC4-SHA',
+					'verify_peer' =&gt; false,
+					'verify_peer_name' =&gt; false 
+			) 
+	);
+	// SOAP 1.2 client
+	$params = array (
+			'encoding' =&gt; 'UTF-8',
+			'verifypeer' =&gt; false,
+			'verifyhost' =&gt; false,
+			'soap_version' =&gt; SOAP_1_1,
+			'trace' =&gt; 1,
+			'exceptions' =&gt; 1,
+			&quot;connection_timeout&quot; =&gt; 180,
+			'stream_context' =&gt; stream_context_create ( $opts ),
+			'local_cert' =&gt; $local_cert, // client证书信息
+			'passphrase' =&gt; 'client'  // 密码
+		);
+ 
+	;
+	$soap = new SoapClient ( $wsdl, $params );
+例子：
+	&lt;?php
+header(&quot;content-type:text/html;charset=utf-8&quot;);
+try {
+	// 要请求的内容 打成xml
+	//xml加密
+	//密钥 
+	//偏移量 
+	//随机数 
+	//用户
+    $client = new SoapClient(&quot;https://192.168.3.12:8866/epic/query?wsdl&quot;,
+        array(
+            &quot;stream_context&quot; =&gt; stream_context_create(
+                array(
+                    'ssl' =&gt; array(
+                        'verify_peer' =&gt; false,
+                        'verify_peer_name' =&gt; false,
+                    )
+                )
+            )
+        )
+    );
+    //print_r($client-&gt;__getFunctions());
+    //print_r($client-&gt;__getTypes());
+
+    $parm = array('content' =&gt; 'inKkcE+e4h+1q5Rpm8hAqw0Ph8yYx3hlhUO/1dJqrhm4Y4p/ot7yhgnzg5cQj+3Whac+3gx5yfs1KVX/1U9TwugtKtMdRFwPxPbF27i+BmAh3gZN6SSMCvbvVmi2EBRgRxJEHBMrk52DCpUtC21nn4ECvkBUKBcf0vCnAVfB4Xs=', 'contentHash' =&gt; '0lh0DJh3A2j1ei7NhEAnYA==', 'random' =&gt; 'AUMIxMlN4IoZTuh3Gh6y', 'loginName' =&gt; 'glpt_user01');
+    $result = $client-&gt;epic_ent_person_relation($parm);
+    //print_r($result);
+
+    //将stdclass object的$result转换为array
+    $result = get_object_vars($result);
+    //输出结果 
+    echo $result[&quot;return&quot;];
+   
+
+} catch (SOAPFault $e) {
+    print $e;
+}
+?&gt;
+</code></pre>
+
+                </div>
+            </article>
         </div>
-    </article>
-</div>
-</div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://mycodemylife.github.io/post/php_change/" class="post-title gt-a-link">
+                    php证件照换底色
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">一闪一闪亮晶晶</div>
     <div class="social-container">
