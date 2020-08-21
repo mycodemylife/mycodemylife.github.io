@@ -2,13 +2,97 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-08-21T05:31:08.172Z</updated>
+    <updated>2020-08-21T05:49:46.557Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[oracle关闭和重启]]></title>
+        <id>https://mycodemylife.github.io/post/oracle-guan-bi-he-chong-qi/</id>
+        <link href="https://mycodemylife.github.io/post/oracle-guan-bi-he-chong-qi/">
+        </link>
+        <updated>2020-08-21T05:47:39.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-sh">启动：
+1、先登录服务器后，切换到oracle用户状态下： su oracle
+
+2、检查oracle监听器运行状态：lsnrctl status命令查看。
+
+表示监听没有启动。
+
+3、执行启动监听，通过命令：lsnrctl start （lsnrctl stop 关闭监听）
+
+表示端口已启动成功。
+
+4、如果启动报错，listener.ora文件打开，调整HOST IP
+
+5、进入sqlplus，命令：sqlplus /nolog
+
+6、管理员sysdba权限登陆oracle：conn /as sysdba
+
+7、启动服务（实例）：startup
+
+
+重启：先关闭再连接
+sqlplus sys/'pass!'@ORCL as sysdba
+
+shutdown immediate;
+
+退出 exit
+
+sqlplus /nolog
+
+conn /as sysdba
+
+startup
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[oracle  spool]]></title>
+        <id>https://mycodemylife.github.io/post/oracle-spool/</id>
+        <link href="https://mycodemylife.github.io/post/oracle-spool/">
+        </link>
+        <updated>2020-08-21T05:44:47.000Z</updated>
+        <content type="html"><![CDATA[<p>可用于导出数据</p>
+<pre><code class="language-sh">#!/bin/sh
+export NLS_LANG='SIMPLIFIED CHINESE_CHINA.UTF8'
+ORA_NAME=dbname
+ORA_USER=username
+ORA_PASS=pass
+sqlplus -S ${ORA_USER}/${ORA_PASS} &lt;&lt; EOF
+set echo off;
+set feedback off;
+set newpage none;
+set verify off;
+set pagesize 0;
+set term off;
+set trims on;
+set linesize 10000;
+set heading off;
+set timing off;
+set numwidth 38;
+SPOOL /tmp/demo.sql;
+SELECT
+        'insert into Idcard(name,idNumMd5,idNum,createTime,flag) values(&quot;'||
+        DWMC|| '&quot;,&quot;' ||
+        md5(ZJHM)|| '&quot;,&quot;' ||
+        ZJHM|| '&quot;,now(),&quot;' ||
+        JGDM||
+        '&quot;);'
+FROM
+       Table
+WHERE
+        ZT=1
+        and YL1=200;
+SPOOL OFF;
+exit
+EOF
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PHP 调用https类型webservice接口]]></title>
         <id>https://mycodemylife.github.io/post/php-webservice/</id>
