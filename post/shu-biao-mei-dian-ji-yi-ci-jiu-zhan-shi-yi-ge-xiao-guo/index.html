@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>pip从国内安装 | 七彩旋律</title>
+<title>鼠标每点击一次就展示一个效果 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1597991299183">
 
@@ -89,22 +89,44 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    pip从国内安装
+                    鼠标每点击一次就展示一个效果
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
                         · 2020-08-21 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/Xegx193Qz/" class="post-tags">
-                            # python
+                        <a href="https://mycodemylife.github.io/tag/pPI1jkWNe/" class="post-tags">
+                            # javascript
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <pre><code>pip install abc -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+                    <pre><code class="language-js">$(&quot;body&quot;).click(function(e) {
+        var a = new Array(&quot;❤主人你最帅❤&quot;,&quot;❤你最有钱❤&quot;,&quot;❤漂亮姑娘都爱你❤&quot;);
+        var $i = $(&quot;&lt;span&gt;&lt;/span&gt;&quot;).text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            &quot;z-index&quot;: 99999999999999999999999,
+            &quot;top&quot;: y - 20,
+            &quot;left&quot;: x,
+            &quot;position&quot;: &quot;absolute&quot;,
+            &quot;font-weight&quot;: &quot;bold&quot;,
+            &quot;color&quot;: &quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;
+        });
+        $(&quot;body&quot;).append($i);
+        $i.animate({
+            &quot;top&quot;: y - 180,
+            &quot;opacity&quot;: 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
 </code></pre>
-<p>-i  指定源</p>
 
                 </div>
             </article>
@@ -113,8 +135,8 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/mysql-zi-dai-jia-mi-han-shu/" class="post-title gt-a-link">
-                    mysql 自带加密函数
+                <a href="https://mycodemylife.github.io/post/mysql-ipv4-ipv6-zhuan-huan-yi-ji-zi-fu-jie-qu/" class="post-title gt-a-link">
+                    mysql  IPV4  IPV6 转换以及字符截取
                 </a>
             </div>
         

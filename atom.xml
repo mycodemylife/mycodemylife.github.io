@@ -2,13 +2,227 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-08-21T06:19:42.889Z</updated>
+    <updated>2020-08-21T06:28:40.287Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[centos6防火墙]]></title>
+        <id>https://mycodemylife.github.io/post/centos6-fang-huo-qiang/</id>
+        <link href="https://mycodemylife.github.io/post/centos6-fang-huo-qiang/">
+        </link>
+        <updated>2020-08-21T06:24:21.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-shell"> #清除预设表filter中的所有规则链的规则
+   iptables -F
+   #清除预设表filter中使用者自定链中的规则
+   iptables -X
+   #保存iptables配置
+   service iptables save
+   #重启iptables服务
+   service iptables restart
+   #iptables服务状态
+   service iptables status
+   #iptables服务启动
+   service iptables start
+   #iptables服务停止
+   service iptables stop
+   #查看iptables规则
+   iptables -L -n
+   #查看iptables规则文件
+   cat /etc/sysconfig/iptables
+   #设定预设规则
+   iptables -P INPUT DROP
+   iptables -P OUTPUT ACCEPT
+   iptables -P FORWARD DROP
+   #开启22端口
+   iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+   #如果OUTPUT设置成DROP需要添加 iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+   #关闭22端口 iptables -D INPUT -p tcp --dport 22 -j ACCEPT
+   #开启常用端口
+   iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+   iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
+   #iptables -A OUTPUT -p tcp --sport 80 -j ACCEPT
+   #iptables -A OUTPUT -p tcp --sport 3306 -j ACCEPT
+   #iptables -A INPUT -p tcp --dport 20 -j ACCEPT
+   #iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+   #iptables -A INPUT -p tcp --dport 10000 -j ACCEPT
+   #iptables -A INPUT -p tcp --dport 25 -j ACCEPT
+   #iptables -A INPUT -p tcp --dport 110 -j ACCEPT
+   #iptables -A INPUT -p udp --dport 53 -j ACCEPT
+   #允许ping
+   iptables -A INPUT -p icmp -j ACCEPT
+   #如果OUTPUT设置成DROP需要添加 iptables -A OUTPUT -p icmp -j ACCEPT
+   #允许loopback
+   iptables -A INPUT -i lo -p all -j ACCEPT
+   #如果OUTPUT设置成DROP需要添加 iptables -A OUTPUT -o lo -p all -j ACCEPT
+   #屏蔽指定ip
+   #iptables -A INPUT -p tcp -s 192.168.10.1 -j DROP
+   #减少不安全的端口连接
+   #iptables -A OUTPUT -p tcp --sport 31337 -j DROP
+   #iptables -A OUTPUT -p tcp --dport 31337 -j DROP
+   #允许某个IP远程连接
+   #iptables -A INPUT -s 192.168.10.1 -p tcp --dport 22 -j ACCEPT
+   #允许某个网段的IP远程连接
+   iptables -A INPUT -s 192.168.10.0/24 -p tcp --dport 22 -j ACCEPT
+   #允许指定网段通过、指定网口通过SSH连接本机
+   #iptables -A INPUT -i eth0 -p tcp -s 192.168.10.0/24 --dport 22 -m state --state NEW,ESTABLESHED -j ACCEPT
+   #iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+   #iptables -A INPUT -i eth0 -p tcp -s 192.168.10.0/24 --dport 22 -m state --state ESTABLESHED -j ACCEPT
+   #iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+   #开启转发功能
+   #iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+   #iptables -A FORWARD -i eth1 -o eh0 -j ACCEPT
+   #丢弃坏的TCP包
+   #iptables -A FORWARD -p TCP ! --syn -m state --state NEW -j DROP
+   #处理IP碎片数量,防止攻击,允许每秒100个
+   #iptables -A FORWARD -f -m limit --limit 100/s --limit-burst 100 -j ACCEPT
+   #设置ICMP包过滤,允许每秒1个包,限制触发条件是10个包
+   #iptables -A FORWARD -p icmp -m limit --limit 1/s --limit-burst 10 -j ACCEPT
+   #丢弃非法连接
+   iptables -A INPUT -m state --state INVALID -j DROP
+   iptables -A OUTPUT -m state --state INVALID -j DROP
+   iptables -A FORWARD -m state --state INVALID -j DROP
+   #允许所有已经建立的和相关的连接
+   iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+   iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+
+－－###############配置NAT表防火墙###############
+
+   #查看NAT表规则
+   iptables -t nat -L
+   #清除NAT规则
+   iptables -F -t nat
+   iptables -X -t nat
+   iptables -Z -t nat
+   #防止外网用内网IP欺骗
+   #iptables -t nat -A PREROUTING -i eth0 -s 10.0.0.0/8 -j DROP
+   #iptables -t nat -A PREROUTING -i eth0 -s 172.16.0.0/12 -j DROP
+   #iptables -t nat -A PREROUTING -i eth0 -s 192.168.0.0/16 -j DROP
+   #禁止与某个IP的所有连接
+   #iptables -t nat -A PREROUTING -d 192.168.10.1 -j DROP
+   #禁用80端口
+   #iptables -t nat -A PREROUTING -p tcp --dport 80 -j DROP
+   #禁用某个IP的80端口
+   #iptables -t nat -A PREROUTING -p tcp --dport 21 -d 192.168.10.1 -j DROP
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[centos7防火墙]]></title>
+        <id>https://mycodemylife.github.io/post/centos7-fang-huo-qiang/</id>
+        <link href="https://mycodemylife.github.io/post/centos7-fang-huo-qiang/">
+        </link>
+        <updated>2020-08-21T06:23:46.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-sh">systemctl status firewalld.service		查看firewalld状态
+systemctl start firewalld.service		开启firewalld
+systemctl stop firewalld.service		关闭firewalld
+firewall-cmd --zone=public --add-port=80/tcp --permanent	永久添加指定端口
+firewall-cmd --zone=public --remove-port=8080/tcp --permanent	永久移除指定端口
+firewall-cmd --query-port=3306/tcp		查看端口是否被开放，返回yes/no
+firewall-cmd --list-all		查看所有开放的端口
+systemctl enable firewalld.service		开启自启
+systemctl disable firewalld.service		禁止开机自启
+systemctl is-enabled firewalld.service		查看是否开机自启
+firewall-cmd --reload		更新防火墙规则（立即生效，永久添加时需要reload）
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu防火墙]]></title>
+        <id>https://mycodemylife.github.io/post/ubuntu-fang-huo-qiang/</id>
+        <link href="https://mycodemylife.github.io/post/ubuntu-fang-huo-qiang/">
+        </link>
+        <updated>2020-08-21T06:23:17.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-sh">1.安装
+
+sudo apt-get install ufw
+
+2.启用
+
+sudo ufw enable
+
+sudo ufw default deny
+
+运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常。
+
+3.开启/禁用
+
+sudo ufw allow|deny [service]
+
+打开或关闭某个端口，例如：
+
+sudo ufw allow smtp　允许所有的外部IP访问本机的25/tcp (smtp)端口
+
+sudo ufw allow 22/tcp 允许所有的外部IP访问本机的22/tcp (ssh)端口
+
+sudo ufw allow 53 允许外部访问53端口(tcp/udp)
+
+sudo ufw allow from 192.168.1.100 允许此IP访问所有的本机端口
+
+sudo ufw allow proto udp 192.168.0.1 port 53 to 192.168.0.2 port 53
+
+sudo ufw deny smtp 禁止外部访问smtp服务
+
+sudo ufw delete allow smtp 删除上面建立的某条规则
+
+4.查看防火墙状态
+
+sudo ufw status
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IE  360安全浏览器 兼容]]></title>
+        <id>https://mycodemylife.github.io/post/ie-360-an-quan-liu-lan-qi-jian-rong/</id>
+        <link href="https://mycodemylife.github.io/post/ie-360-an-quan-liu-lan-qi-jian-rong/">
+        </link>
+        <updated>2020-08-21T06:21:48.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-css">/* IE8+ */
+.nav-mini.navDiv {
+	overflow: visible\0;
+}
+</code></pre>
+<h3 id="在其他浏览器下不展示在ie会展示">在其他浏览器下不展示，在IE会展示</h3>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[鼠标每点击一次就展示一个效果]]></title>
+        <id>https://mycodemylife.github.io/post/shu-biao-mei-dian-ji-yi-ci-jiu-zhan-shi-yi-ge-xiao-guo/</id>
+        <link href="https://mycodemylife.github.io/post/shu-biao-mei-dian-ji-yi-ci-jiu-zhan-shi-yi-ge-xiao-guo/">
+        </link>
+        <updated>2020-08-21T06:20:18.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-js">$(&quot;body&quot;).click(function(e) {
+        var a = new Array(&quot;❤主人你最帅❤&quot;,&quot;❤你最有钱❤&quot;,&quot;❤漂亮姑娘都爱你❤&quot;);
+        var $i = $(&quot;&lt;span&gt;&lt;/span&gt;&quot;).text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            &quot;z-index&quot;: 99999999999999999999999,
+            &quot;top&quot;: y - 20,
+            &quot;left&quot;: x,
+            &quot;position&quot;: &quot;absolute&quot;,
+            &quot;font-weight&quot;: &quot;bold&quot;,
+            &quot;color&quot;: &quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;
+        });
+        $(&quot;body&quot;).append($i);
+        $i.animate({
+            &quot;top&quot;: y - 180,
+            &quot;opacity&quot;: 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[mysql  IPV4  IPV6 转换以及字符截取]]></title>
         <id>https://mycodemylife.github.io/post/mysql-ipv4-ipv6-zhuan-huan-yi-ji-zi-fu-jie-qu/</id>
@@ -167,140 +381,6 @@ SPOOL OFF;
 exit
 EOF
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[PHP 调用https类型webservice接口]]></title>
-        <id>https://mycodemylife.github.io/post/php-webservice/</id>
-        <link href="https://mycodemylife.github.io/post/php-webservice/">
-        </link>
-        <updated>2020-08-20T09:26:04.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-php">$opts = array (
-			'ssl' =&gt; array (
-					'ciphers' =&gt; 'RC4-SHA',
-					'verify_peer' =&gt; false,
-					'verify_peer_name' =&gt; false 
-			) 
-	);
-	// SOAP 1.2 client
-	$params = array (
-			'encoding' =&gt; 'UTF-8',
-			'verifypeer' =&gt; false,
-			'verifyhost' =&gt; false,
-			'soap_version' =&gt; SOAP_1_1,
-			'trace' =&gt; 1,
-			'exceptions' =&gt; 1,
-			&quot;connection_timeout&quot; =&gt; 180,
-			'stream_context' =&gt; stream_context_create ( $opts ),
-			'local_cert' =&gt; $local_cert, // client证书信息
-			'passphrase' =&gt; 'client'  // 密码
-		);
- 
-	;
-	$soap = new SoapClient ( $wsdl, $params );
-例子：
-	&lt;?php
-header(&quot;content-type:text/html;charset=utf-8&quot;);
-try {
-	// 要请求的内容 打成xml
-	//xml加密
-	//密钥 
-	//偏移量 
-	//随机数 
-	//用户
-    $client = new SoapClient(&quot;https://192.168.3.12:8866/epic/query?wsdl&quot;,
-        array(
-            &quot;stream_context&quot; =&gt; stream_context_create(
-                array(
-                    'ssl' =&gt; array(
-                        'verify_peer' =&gt; false,
-                        'verify_peer_name' =&gt; false,
-                    )
-                )
-            )
-        )
-    );
-    //print_r($client-&gt;__getFunctions());
-    //print_r($client-&gt;__getTypes());
-
-    $parm = array('content' =&gt; 'inKkcE+e4h+1q5Rpm8hAqw0Ph8yYx3hlhUO/1dJqrhm4Y4p/ot7yhgnzg5cQj+3Whac+3gx5yfs1KVX/1U9TwugtKtMdRFwPxPbF27i+BmAh3gZN6SSMCvbvVmi2EBRgRxJEHBMrk52DCpUtC21nn4ECvkBUKBcf0vCnAVfB4Xs=', 'contentHash' =&gt; '0lh0DJh3A2j1ei7NhEAnYA==', 'random' =&gt; 'AUMIxMlN4IoZTuh3Gh6y', 'loginName' =&gt; 'glpt_user01');
-    $result = $client-&gt;epic_ent_person_relation($parm);
-    //print_r($result);
-
-    //将stdclass object的$result转换为array
-    $result = get_object_vars($result);
-    //输出结果 
-    echo $result[&quot;return&quot;];
-   
-
-} catch (SOAPFault $e) {
-    print $e;
-}
-?&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[php证件照换底色]]></title>
-        <id>https://mycodemylife.github.io/post/php_change/</id>
-        <link href="https://mycodemylife.github.io/post/php_change/">
-        </link>
-        <updated>2020-08-20T09:08:27.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-php">&lt;?php
-//背景图和原图需要保持宽高要保持一样，这里的示例原图用的是蓝色背景
-init();
-function init(){
-    $old = '1.png';
-    $new = '2.png';
-    //创建一个png透明图
-    $img = imagecreatefrompng($old);
-    setpng($img,$old,$new);
-}
-function setpng($imgid,$filename,$savename){
-    $bg = 'bg.png';//背景图
-    $new = imagecreatefrompng($bg);//创建一个png透明图
-    list($width,$height)=getimagesize($filename);//获取长和宽
-    $white = imagecolorallocate($imgid,1,155,215);//选择一个替换颜色。这里是绿色
-    cleancolor($imgid,$white);
-    imagecolortransparent($imgid,$white);//把选择的颜色替换成透明
-    imagecopymerge($new,$imgid,0,0,0,0,$width,$height,100);//合并图片
-    imagepng($new,$savename);//保存图片
-    imagedestroy($imgid);//销毁
-    imagedestroy($new);
-    echo '&lt;img src=&quot;'.$savename.'&quot;&gt;';
-}
-function cleancolor($imgid,$color){
-    $width = imagesx($imgid);//获取宽
-    $height = imagesy($imgid);//获取高
-    for($i=0;$i&lt;$width;$i++){
-        for($k=0;$k&lt;$height;$k++){
-            //对比每一个像素
-            $rgb = imagecolorat($imgid,$i,$k);
-            $r = ($rgb &gt;&gt; 16)&amp;0xff;//取R
-            $g = ($rgb &gt;&gt; 8)&amp;0xff;//取G
-            $b = $rgb&amp;0xff;//取B
-            $randr = 1.5;
-            $randg = 1;
-            $randb=1;
-            //蓝色RGB大致的位置。替换成绿色
-            if($r&lt;=65*$randr &amp;&amp; $g&lt;=225*$randg &amp;&amp; $b&lt;=255*$randb &amp;&amp; $b*$randb&gt;=100){
-                //如果能够精确的计算出要保留位置的，这里可以写绝对的数字
-                if($i&gt;=$width/2 &amp;&amp; $i&lt;=$width/2 &amp;&amp; $k&gt;=$height/2 &amp;&amp; $k&lt;=$height/2){
-                    
-                }else{
-                    //改变颜色
-                    imagesetpixel($imgid,$i,$k,$color);
-                }
-            }
-        }
-    }
-}
-
-$old指的是要处理的图片，指定为png格式
-$new指的是处理后输出的图片名
-$bg指的是背景图
-</code></pre>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>

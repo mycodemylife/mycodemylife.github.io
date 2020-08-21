@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>pip从国内安装 | 七彩旋律</title>
+<title>centos7防火墙 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1597991299183">
 
@@ -89,22 +89,32 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    pip从国内安装
+                    centos7防火墙
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
                         · 2020-08-21 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/Xegx193Qz/" class="post-tags">
-                            # python
+                        <a href="https://mycodemylife.github.io/tag/tp6gu5J5O/" class="post-tags">
+                            # linux
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <pre><code>pip install abc -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+                    <pre><code class="language-sh">systemctl status firewalld.service		查看firewalld状态
+systemctl start firewalld.service		开启firewalld
+systemctl stop firewalld.service		关闭firewalld
+firewall-cmd --zone=public --add-port=80/tcp --permanent	永久添加指定端口
+firewall-cmd --zone=public --remove-port=8080/tcp --permanent	永久移除指定端口
+firewall-cmd --query-port=3306/tcp		查看端口是否被开放，返回yes/no
+firewall-cmd --list-all		查看所有开放的端口
+systemctl enable firewalld.service		开启自启
+systemctl disable firewalld.service		禁止开机自启
+systemctl is-enabled firewalld.service		查看是否开机自启
+firewall-cmd --reload		更新防火墙规则（立即生效，永久添加时需要reload）
+
 </code></pre>
-<p>-i  指定源</p>
 
                 </div>
             </article>
@@ -113,8 +123,8 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/mysql-zi-dai-jia-mi-han-shu/" class="post-title gt-a-link">
-                    mysql 自带加密函数
+                <a href="https://mycodemylife.github.io/post/ubuntu-fang-huo-qiang/" class="post-title gt-a-link">
+                    Ubuntu防火墙
                 </a>
             </div>
         
