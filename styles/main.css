@@ -542,6 +542,7 @@ ul li {
   justify-content: space-between;
   align-items: center;
   transition: all 0.3s;
+  border: 1px solid #666;
 }
 .post-list-container .post-inner .post .post-left {
   width: 100%;
