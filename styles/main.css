@@ -587,8 +587,6 @@ ul li {
 .post-list-container .post-inner .post .post-feature-image {
   width: 200px;
   height: 100px;
-  flex-basis: 200px;
-  flex-shrink: 0;
   margin-left: 20px;
   border-radius: 2px;
   overflow: hidden;
