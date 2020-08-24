@@ -2,13 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-08-21T09:36:46.847Z</updated>
+    <updated>2020-08-24T07:14:30.470Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[jQuery获取元素的兄弟节点]]></title>
+        <id>https://mycodemylife.github.io/post/jquery-huo-qu-yuan-su-de-xiong-di-jie-dian/</id>
+        <link href="https://mycodemylife.github.io/post/jquery-huo-qu-yuan-su-de-xiong-di-jie-dian/">
+        </link>
+        <updated>2020-08-24T07:12:07.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>$('#id').siblings()   当前元素所有的兄弟节点
+$('#id').prev()       当前元素前一个兄弟节点
+$('#id').prevaAll()   当前元素之前所有的兄弟节点
+$('#id').next()       当前元素之后第一个兄弟节点
+$('#id').nextAll()    当前元素之后所有的兄弟节点
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[centos6防火墙]]></title>
         <id>https://mycodemylife.github.io/post/centos6-fang-huo-qiang/</id>
@@ -337,49 +351,6 @@ sqlplus /nolog
 conn /as sysdba
 
 startup
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[oracle  spool]]></title>
-        <id>https://mycodemylife.github.io/post/oracle-spool/</id>
-        <link href="https://mycodemylife.github.io/post/oracle-spool/">
-        </link>
-        <updated>2020-08-21T05:44:47.000Z</updated>
-        <content type="html"><![CDATA[<p>可用于导出数据</p>
-<pre><code class="language-sh">#!/bin/sh
-export NLS_LANG='SIMPLIFIED CHINESE_CHINA.UTF8'
-ORA_NAME=dbname
-ORA_USER=username
-ORA_PASS=pass
-sqlplus -S ${ORA_USER}/${ORA_PASS} &lt;&lt; EOF
-set echo off;
-set feedback off;
-set newpage none;
-set verify off;
-set pagesize 0;
-set term off;
-set trims on;
-set linesize 10000;
-set heading off;
-set timing off;
-set numwidth 38;
-SPOOL /tmp/demo.sql;
-SELECT
-        'insert into Idcard(name,idNumMd5,idNum,createTime,flag) values(&quot;'||
-        DWMC|| '&quot;,&quot;' ||
-        md5(ZJHM)|| '&quot;,&quot;' ||
-        ZJHM|| '&quot;,now(),&quot;' ||
-        JGDM||
-        '&quot;);'
-FROM
-       Table
-WHERE
-        ZT=1
-        and YL1=200;
-SPOOL OFF;
-exit
-EOF
 </code></pre>
 ]]></content>
     </entry>
