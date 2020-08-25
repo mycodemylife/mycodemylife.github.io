@@ -2,13 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-08-25T00:59:38.977Z</updated>
+    <updated>2020-08-25T01:02:10.878Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[phpstudy 启动导致本地的数据库服务丢失]]></title>
+        <id>https://mycodemylife.github.io/post/phpstudy-qi-dong-dao-zhi-ben-di-de-shu-ju-ku-fu-wu-diu-shi/</id>
+        <link href="https://mycodemylife.github.io/post/phpstudy-qi-dong-dao-zhi-ben-di-de-shu-ju-ku-fu-wu-diu-shi/">
+        </link>
+        <updated>2020-08-25T01:01:10.000Z</updated>
+        <content type="html"><![CDATA[<p>mysqld --install MySQL5.5  换一个名字就ok！！！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Win下查看端口是否被占用以及所属程序]]></title>
         <id>https://mycodemylife.github.io/post/win-xia-cha-kan-duan-kou-shi-fou-bei-zhan-yong-yi-ji-suo-shu-cheng-xu/</id>
@@ -311,28 +320,6 @@ sudo ufw status
         <content type="html"><![CDATA[<pre><code>pip install abc -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 </code></pre>
 <p>-i  指定源</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[mysql 自带加密函数]]></title>
-        <id>https://mycodemylife.github.io/post/mysql-zi-dai-jia-mi-han-shu/</id>
-        <link href="https://mycodemylife.github.io/post/mysql-zi-dai-jia-mi-han-shu/">
-        </link>
-        <updated>2020-08-21T05:58:54.000Z</updated>
-        <content type="html"><![CDATA[<ol>
-<li>
-<h2 id="加密">加密</h2>
-</li>
-</ol>
-<pre><code class="language-mysql">SELECT Hex(AES_ENCRYPT(&quot;hello world&quot;,&quot;1q2w3e4r5t&quot;));
-</code></pre>
-<ol start="2">
-<li>
-<h2 id="解密">解密</h2>
-</li>
-</ol>
-<pre><code class="language-mysql">SELECT AES_DECRYPT(UNHEX(&quot;79A3B96BF32FABEAB0BD03D56044FFDF&quot;),&quot;1q2w3e4r5t&quot;);
-</code></pre>
 ]]></content>
     </entry>
 </feed>
