@@ -471,6 +471,27 @@ ul li {
   display: flex;
   flex-direction: column;
 }
+.mybutton {
+  width: 200px;
+  padding: 8px;
+  background-color: #428bca;
+  border: 0;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 5;
+}
+.next-post {
+  z-index: 5;
+}
+.zsshow {
+  display: flex;
+}
+@media screen and (max-width: 1000px) {
+  .zsshow {
+    display: unset;
+  }
+}
 .navbar {
   padding: 38px 96px !important;
 }
