@@ -2,13 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-08-24T07:14:30.470Z</updated>
+    <updated>2020-08-25T00:59:38.977Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[Win下查看端口是否被占用以及所属程序]]></title>
+        <id>https://mycodemylife.github.io/post/win-xia-cha-kan-duan-kou-shi-fou-bei-zhan-yong-yi-ji-suo-shu-cheng-xu/</id>
+        <link href="https://mycodemylife.github.io/post/win-xia-cha-kan-duan-kou-shi-fou-bei-zhan-yong-yi-ji-suo-shu-cheng-xu/">
+        </link>
+        <updated>2020-08-25T00:57:37.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<h3 id="查看端口号是否被占用">查看端口号是否被占用</h3>
+</li>
+</ol>
+<pre><code>netstat -ano|findstr 3306
+</code></pre>
+<ol start="2">
+<li>
+<h3 id="查看进程所属应用程序">查看进程所属应用程序</h3>
+</li>
+</ol>
+<pre><code>tasklist|findstr 1596
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[jQuery获取元素的兄弟节点]]></title>
         <id>https://mycodemylife.github.io/post/jquery-huo-qu-yuan-su-de-xiong-di-jie-dian/</id>
@@ -310,47 +332,6 @@ sudo ufw status
 </li>
 </ol>
 <pre><code class="language-mysql">SELECT AES_DECRYPT(UNHEX(&quot;79A3B96BF32FABEAB0BD03D56044FFDF&quot;),&quot;1q2w3e4r5t&quot;);
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[oracle关闭和重启]]></title>
-        <id>https://mycodemylife.github.io/post/oracle-guan-bi-he-chong-qi/</id>
-        <link href="https://mycodemylife.github.io/post/oracle-guan-bi-he-chong-qi/">
-        </link>
-        <updated>2020-08-21T05:47:39.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-sh">启动：
-1、先登录服务器后，切换到oracle用户状态下： su oracle
-
-2、检查oracle监听器运行状态：lsnrctl status命令查看。
-
-表示监听没有启动。
-
-3、执行启动监听，通过命令：lsnrctl start （lsnrctl stop 关闭监听）
-
-表示端口已启动成功。
-
-4、如果启动报错，listener.ora文件打开，调整HOST IP
-
-5、进入sqlplus，命令：sqlplus /nolog
-
-6、管理员sysdba权限登陆oracle：conn /as sysdba
-
-7、启动服务（实例）：startup
-
-
-重启：先关闭再连接
-sqlplus sys/'pass!'@ORCL as sysdba
-
-shutdown immediate;
-
-退出 exit
-
-sqlplus /nolog
-
-conn /as sysdba
-
-startup
 </code></pre>
 ]]></content>
     </entry>
