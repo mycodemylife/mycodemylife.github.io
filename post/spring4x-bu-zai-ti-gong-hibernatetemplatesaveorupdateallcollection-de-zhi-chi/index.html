@@ -1,11 +1,10 @@
 <html>
-
 <head>
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>友情链接 - 七彩旋律</title>
+<title>spring4.x不再提供 HibernateTemplate.saveOrUpdateAll(Collection) 的支持 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1598493997443">
 
@@ -26,12 +25,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
-
 <body>
 <div class="main gt-bg-theme-color-first">
-        <div class="main-content">
-            <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -87,25 +85,52 @@
     </div>
 </nav>
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
-            <div class="post-container">
-                <div class="post-detail">
-                    <article>
-                        <!-- <div class="post-content-wrapper"> -->
-                            <div class="post-content">
-                                <div class="friends-desc">
-                                    
-                                </div>
-                                <h3 id="linklist">友链列表</h3>
-                                
-                                    
-                                
-                            </div>
-                        <!-- </div> -->
-                    </article>
-                </div>
-                
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    spring4.x不再提供 HibernateTemplate.saveOrUpdateAll(Collection) 的支持
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-08-27 ·
+                    </time>
                     
-                        <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/layer.min.js"></script>
+                </div>
+                <div class="post-content">
+                    <h2 id="报错the-method-saveorupdateallcollection-is-undefined-for-the-type-hibernatetemplate">报错：The method saveOrUpdateAll(Collection) is undefined for the type HibernateTemplate</h2>
+<p>在spring2<API FOR SPRING2> 和spring 3的文档 <API FOR SPRING3>中会发现：从 spring2.5 起，官方就建议不要使用该方法，并且在 spring4.x中完全摈弃了这个方法。</p>
+<p>saveOrUpdateAll 的声明如下：</p>
+<pre><code>public void saveOrUpdateAll(Collection entities) throws DataAccessException
+</code></pre>
+<p>参数中接收一个Collection。</p>
+<p>原项目中代码如此：</p>
+<pre><code>super.getHibernateTemplate().saveOrUpdateAll(entitys);
+</code></pre>
+<p>可以修改为这样：</p>
+<pre><code>for(Object t : entities) {
+   getHibernateTemplate().saveOrUpdate(t);
+}
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://mycodemylife.github.io/post/phpstudy-qi-dong-dao-zhi-ben-di-de-shu-ju-ku-fu-wu-diu-shi/" class="post-title gt-a-link">
+                    phpstudy 启动导致本地的数据库服务丢失
+                </a>
+            </div>
+        
+
+        
+
+        
+            
+                <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/layer.min.js"></script>
 <link href="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/theme/moon/style.min.css" rel="stylesheet">
 <button class="mybutton" onclick="show()">赞赏支持</button>
 <script type="text/javascript"> 
@@ -133,15 +158,14 @@ script.id = 'changyan_mobile_js';
 script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf;
 head.appendChild(script);
 } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-                    
+            
 
-                    
-                
-            </div>
+            
+        
 
+        
 
-
-            <div class="site-footer gt-c-content-color-first">
+        <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first"></div>
     <div class="social-container">
         
@@ -168,8 +192,7 @@ head.appendChild(script);
   hljs.initHighlightingOnLoad()
 </script>
 
-        </div>
     </div>
+</div>
 </body>
-
 </html>

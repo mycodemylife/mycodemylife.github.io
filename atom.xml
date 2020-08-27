@@ -2,13 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-08-25T09:31:43.536Z</updated>
+    <updated>2020-08-27T02:06:49.608Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[spring4.x不再提供 HibernateTemplate.saveOrUpdateAll(Collection) 的支持]]></title>
+        <id>https://mycodemylife.github.io/post/spring4x-bu-zai-ti-gong-hibernatetemplatesaveorupdateallcollection-de-zhi-chi/</id>
+        <link href="https://mycodemylife.github.io/post/spring4x-bu-zai-ti-gong-hibernatetemplatesaveorupdateallcollection-de-zhi-chi/">
+        </link>
+        <updated>2020-08-27T02:04:51.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="报错the-method-saveorupdateallcollection-is-undefined-for-the-type-hibernatetemplate">报错：The method saveOrUpdateAll(Collection) is undefined for the type HibernateTemplate</h2>
+<p>在spring2<API FOR SPRING2> 和spring 3的文档 <API FOR SPRING3>中会发现：从 spring2.5 起，官方就建议不要使用该方法，并且在 spring4.x中完全摈弃了这个方法。</p>
+<p>saveOrUpdateAll 的声明如下：</p>
+<pre><code>public void saveOrUpdateAll(Collection entities) throws DataAccessException
+</code></pre>
+<p>参数中接收一个Collection。</p>
+<p>原项目中代码如此：</p>
+<pre><code>super.getHibernateTemplate().saveOrUpdateAll(entitys);
+</code></pre>
+<p>可以修改为这样：</p>
+<pre><code>for(Object t : entities) {
+   getHibernateTemplate().saveOrUpdate(t);
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[phpstudy 启动导致本地的数据库服务丢失]]></title>
         <id>https://mycodemylife.github.io/post/phpstudy-qi-dong-dao-zhi-ben-di-de-shu-ju-ku-fu-wu-diu-shi/</id>
@@ -309,17 +331,6 @@ sudo ufw status
 </ol>
 <pre><code class="language-mysql">select substring_index(substring_index('ftp://206.189.90.62/sensi.sh', '/',3),'/',-1) from dual
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[pip从国内安装]]></title>
-        <id>https://mycodemylife.github.io/post/pip-cong-guo-nei-an-zhuang/</id>
-        <link href="https://mycodemylife.github.io/post/pip-cong-guo-nei-an-zhuang/">
-        </link>
-        <updated>2020-08-21T06:05:22.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>pip install abc -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
-</code></pre>
-<p>-i  指定源</p>
 ]]></content>
     </entry>
 </feed>
