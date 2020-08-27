@@ -1,6 +1,7 @@
 $(function(){
 	var a_idx = 0;
-	$("body").click(function(e) {
+	$("body").not('.post-left>div>a').click(function(e) {
+		
         var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
 		a_idx = (a_idx ) % a.length;
         var $i = $("<span></span>").text(a[a_idx]);
