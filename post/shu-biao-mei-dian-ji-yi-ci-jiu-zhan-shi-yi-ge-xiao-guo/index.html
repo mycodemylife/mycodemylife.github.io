@@ -6,7 +6,7 @@
 
 <title>鼠标每点击一次就展示一个效果 | 七彩旋律</title>
 
-<link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1598519114384">
+<link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1598581619511">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://mycodemylife.github.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1598519114384" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1598581619511" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -102,10 +102,11 @@
                     
                 </div>
                 <div class="post-content">
-                    <pre><code class="language-js">$(&quot;body&quot;).click(function(e) {
+                    <pre><code class="language-js">var a_idx = 0;
+$(&quot;body&quot;).click(function(e) {
         var a = new Array(&quot;❤主人你最帅❤&quot;,&quot;❤你最有钱❤&quot;,&quot;❤漂亮姑娘都爱你❤&quot;);
+         a_idx = a_idx % a.length;
         var $i = $(&quot;&lt;span&gt;&lt;/span&gt;&quot;).text(a[a_idx]);
-        a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
         y = e.pageY;
         $i.css({
@@ -125,6 +126,7 @@
         function() {
             $i.remove();
         });
+        a_idx++;
     });
 </code></pre>
 
