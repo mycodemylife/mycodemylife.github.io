@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>jQuery获取元素的兄弟节点 | 七彩旋律</title>
+<title>struts2.3升级到struts2.5 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1598852964381">
 
@@ -92,25 +92,30 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    jQuery获取元素的兄弟节点
+                    struts2.3升级到struts2.5
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-24 ·
+                        · 2020-08-31 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/pPI1jkWNe/" class="post-tags">
-                            # javascript
+                        <a href="https://mycodemylife.github.io/tag/yC0LoYAFU/" class="post-tags">
+                            # java
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <pre><code>$('#id').siblings()   当前元素所有的兄弟节点
-$('#id').prev()       当前元素前一个兄弟节点
-$('#id').prevaAll()   当前元素之前所有的兄弟节点
-$('#id').next()       当前元素之后第一个兄弟节点
-$('#id').nextAll()    当前元素之后所有的兄弟节点
+                    <p>具体内容可以直接百度，很多！<br>
+这里记录一下本人和网上的不同点。由于自定义实现了过滤，所以以前的ActionContext.getParameters()返回Map&lt;String, Object&gt;，现在返回的是HttpParameters，所以需要转换一下。</p>
+<pre><code>Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();
+HttpParameters parameters = ac.getParameters();
+for (Entry&lt;String, Parameter&gt; entry : parameters.entrySet()) {
+    map.put(entry.getValue().getName(), entry.getValue().getMultipleValues());
+}
+return map;
 </code></pre>
+<p>大体的流程就是改pom--改struts--改web.xml.<br>
+根据错误提示改asm，改commons-lang3，改spring版本</p>
 
                 </div>
             </article>
@@ -119,8 +124,8 @@ $('#id').nextAll()    当前元素之后所有的兄弟节点
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/centos6-fang-huo-qiang/" class="post-title gt-a-link">
-                    centos6防火墙
+                <a href="https://mycodemylife.github.io/post/spring4x-bu-zai-ti-gong-hibernatetemplatesaveorupdateallcollection-de-zhi-chi/" class="post-title gt-a-link">
+                    spring4.x不再提供 HibernateTemplate.saveOrUpdateAll(Collection) 的支持
                 </a>
             </div>
         
