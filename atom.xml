@@ -2,13 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-08-31T06:38:42.643Z</updated>
+    <updated>2020-09-01T01:56:23.809Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[Markdown 文档生成工具]]></title>
+        <id>https://mycodemylife.github.io/post/markdown-wen-dang-sheng-cheng-gong-ju/</id>
+        <link href="https://mycodemylife.github.io/post/markdown-wen-dang-sheng-cheng-gong-ju/">
+        </link>
+        <updated>2020-09-01T01:54:45.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>loppo: 非常简单的静态站点生成器</li>
+<li>idoc：简单的文档生成工具</li>
+<li>gitbook：大名鼎鼎的文档协作工具</li>
+<li>docsify：一个神奇的文档站点生成器，简单轻巧，无需静态构建html</li>
+</ol>
+<p>http://www.mamicode.com/info-detail-2662951.html</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[struts2.3升级到struts2.5]]></title>
         <id>https://mycodemylife.github.io/post/struts23-sheng-ji-dao-struts25/</id>
@@ -274,41 +289,6 @@ sudo ufw status
 }
 </code></pre>
 <h3 id="在其他浏览器下不展示在ie会展示">在其他浏览器下不展示，在IE会展示</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[鼠标每点击一次就展示一个效果]]></title>
-        <id>https://mycodemylife.github.io/post/shu-biao-mei-dian-ji-yi-ci-jiu-zhan-shi-yi-ge-xiao-guo/</id>
-        <link href="https://mycodemylife.github.io/post/shu-biao-mei-dian-ji-yi-ci-jiu-zhan-shi-yi-ge-xiao-guo/">
-        </link>
-        <updated>2020-08-21T06:20:18.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-js">var a_idx = 0;
-$(&quot;body&quot;).click(function(e) {
-        var a = new Array(&quot;❤主人你最帅❤&quot;,&quot;❤你最有钱❤&quot;,&quot;❤漂亮姑娘都爱你❤&quot;);
-         a_idx = a_idx % a.length;
-        var $i = $(&quot;&lt;span&gt;&lt;/span&gt;&quot;).text(a[a_idx]);
-        var x = e.pageX,
-        y = e.pageY;
-        $i.css({
-            &quot;z-index&quot;: 99999999999999999999999,
-            &quot;top&quot;: y - 20,
-            &quot;left&quot;: x,
-            &quot;position&quot;: &quot;absolute&quot;,
-            &quot;font-weight&quot;: &quot;bold&quot;,
-            &quot;color&quot;: &quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;
-        });
-        $(&quot;body&quot;).append($i);
-        $i.animate({
-            &quot;top&quot;: y - 180,
-            &quot;opacity&quot;: 0
-        },
-        1500,
-        function() {
-            $i.remove();
-        });
-        a_idx++;
-    });
-</code></pre>
 ]]></content>
     </entry>
 </feed>
