@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>jQuery获取元素的兄弟节点 | 七彩旋律</title>
+<title>python调用webservice接口 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1599787960307">
 
@@ -92,24 +92,32 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    jQuery获取元素的兄弟节点
+                    python调用webservice接口
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-24 ·
+                        · 2020-09-11 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/pPI1jkWNe/" class="post-tags">
-                            # javascript
+                        <a href="https://mycodemylife.github.io/tag/Xegx193Qz/" class="post-tags">
+                            # python
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <pre><code>$('#id').siblings()   当前元素所有的兄弟节点
-$('#id').prev()       当前元素前一个兄弟节点
-$('#id').prevaAll()   当前元素之前所有的兄弟节点
-$('#id').next()       当前元素之后第一个兄弟节点
-$('#id').nextAll()    当前元素之后所有的兄弟节点
+                    <h3 id="导包">导包</h3>
+<pre><code>from suds.client import Client
+</code></pre>
+<h3 id="代码">代码</h3>
+<pre><code>url = &quot;http://domain?wsdl&quot;
+headers = {'Content-Type': 'application/soap+xml;charset=&quot;UTF-8&quot;'}
+client = Client(url,headers=headers,faults=False,timeout=15)
+client.set_options(location=&quot;http://domain?wsdl&quot;)
+</code></pre>
+<p>注意：可以指定location，这会覆盖从接口获得的location</p>
+<h3 id="结果">结果</h3>
+<pre><code>resp = client.service.xxxx_getXXXX(param)
+print(resp)
 </code></pre>
 
                 </div>
@@ -119,8 +127,8 @@ $('#id').nextAll()    当前元素之后所有的兄弟节点
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/centos6-fang-huo-qiang/" class="post-title gt-a-link">
-                    centos6防火墙
+                <a href="https://mycodemylife.github.io/post/markdown-wen-dang-sheng-cheng-gong-ju/" class="post-title gt-a-link">
+                    Markdown 文档生成工具
                 </a>
             </div>
         
