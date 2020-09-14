@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>python调用webservice接口 | 七彩旋律</title>
+<title>sed命令进行字符串替换 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1600062039240">
 
@@ -92,33 +92,30 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    python调用webservice接口
+                    sed命令进行字符串替换
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-09-11 ·
+                        · 2020-09-14 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/Xegx193Qz/" class="post-tags">
-                            # python
+                        <a href="https://mycodemylife.github.io/tag/tp6gu5J5O/" class="post-tags">
+                            # linux
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <h3 id="导包">导包</h3>
-<pre><code>from suds.client import Client
-</code></pre>
-<h3 id="代码">代码</h3>
-<pre><code>url = &quot;http://domain?wsdl&quot;
-headers = {'Content-Type': 'application/soap+xml;charset=&quot;UTF-8&quot;'}
-client = Client(url,headers=headers,faults=False,timeout=15)
-client.set_options(location=&quot;http://domain?wsdl&quot;)
-</code></pre>
-<p>注意：可以指定location，这会覆盖从接口获得的location</p>
-<h3 id="结果">结果</h3>
-<pre><code>resp = client.service.xxxx_getXXXX(param)
-print(resp)
-</code></pre>
+                    <p>命令格式1：sed -i  's/原字符串/新字符串/' 文件<br>
+只匹配第一个符合条件的</p>
+<p>命令格式2：sed -i 's/原字符串/新字符串/g' 文件<br>
+匹配所有符合条件的</p>
+<p>命令格式3：sed -i '行号c 新字符串' 文件<br>
+匹配某一行</p>
+<p>命令格式4：sed -i '起始行号，终止行号c 新字符串' 文件<br>
+匹配从某一行到某一行</p>
+<p>命令格式5：sed -e 命令1 -e 命令2 -e 命令3<br>
+多条命令执行</p>
+<p>-i  将结果保存到文件中</p>
 
                 </div>
             </article>
@@ -127,8 +124,8 @@ print(resp)
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/markdown-wen-dang-sheng-cheng-gong-ju/" class="post-title gt-a-link">
-                    Markdown 文档生成工具
+                <a href="https://mycodemylife.github.io/post/python-zhong-zi-fu-chuan-he-zi-jie-shu-zu-zhuan-huan/" class="post-title gt-a-link">
+                    python中字符串和字节数组转换
                 </a>
             </div>
         

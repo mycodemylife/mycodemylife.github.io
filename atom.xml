@@ -2,13 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-09-11T01:32:57.064Z</updated>
+    <updated>2020-09-14T05:40:44.770Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[sed命令进行字符串替换]]></title>
+        <id>https://mycodemylife.github.io/post/sed-ming-ling-jin-xing-zi-fu-chuan-ti-huan/</id>
+        <link href="https://mycodemylife.github.io/post/sed-ming-ling-jin-xing-zi-fu-chuan-ti-huan/">
+        </link>
+        <updated>2020-09-14T05:36:45.000Z</updated>
+        <content type="html"><![CDATA[<p>命令格式1：sed -i  's/原字符串/新字符串/' 文件<br>
+只匹配第一个符合条件的</p>
+<p>命令格式2：sed -i 's/原字符串/新字符串/g' 文件<br>
+匹配所有符合条件的</p>
+<p>命令格式3：sed -i '行号c 新字符串' 文件<br>
+匹配某一行</p>
+<p>命令格式4：sed -i '起始行号，终止行号c 新字符串' 文件<br>
+匹配从某一行到某一行</p>
+<p>命令格式5：sed -e 命令1 -e 命令2 -e 命令3<br>
+多条命令执行</p>
+<p>-i  将结果保存到文件中</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[python中字符串和字节数组转换]]></title>
         <id>https://mycodemylife.github.io/post/python-zhong-zi-fu-chuan-he-zi-jie-shu-zu-zhuan-huan/</id>
@@ -246,27 +265,6 @@ $('#id').nextAll()    当前元素之后所有的兄弟节点
    #iptables -t nat -A PREROUTING -p tcp --dport 80 -j DROP
    #禁用某个IP的80端口
    #iptables -t nat -A PREROUTING -p tcp --dport 21 -d 192.168.10.1 -j DROP
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[centos7防火墙]]></title>
-        <id>https://mycodemylife.github.io/post/centos7-fang-huo-qiang/</id>
-        <link href="https://mycodemylife.github.io/post/centos7-fang-huo-qiang/">
-        </link>
-        <updated>2020-08-21T06:23:46.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-sh">systemctl status firewalld.service		查看firewalld状态
-systemctl start firewalld.service		开启firewalld
-systemctl stop firewalld.service		关闭firewalld
-firewall-cmd --zone=public --add-port=80/tcp --permanent	永久添加指定端口
-firewall-cmd --zone=public --remove-port=8080/tcp --permanent	永久移除指定端口
-firewall-cmd --query-port=3306/tcp		查看端口是否被开放，返回yes/no
-firewall-cmd --list-all		查看所有开放的端口
-systemctl enable firewalld.service		开启自启
-systemctl disable firewalld.service		禁止开机自启
-systemctl is-enabled firewalld.service		查看是否开机自启
-firewall-cmd --reload		更新防火墙规则（立即生效，永久添加时需要reload）
-
 </code></pre>
 ]]></content>
     </entry>
