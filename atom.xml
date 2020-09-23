@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-09-23T01:08:36.713Z</updated>
+    <updated>2020-09-23T01:12:08.876Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
@@ -72,7 +72,7 @@ mysqldump -uroot -p -B 数据库名 --table 表名 &gt; xxx.sql</p>
 匹配从某一行到某一行</p>
 <p>命令格式5：sed -e 命令1 -e 命令2 -e 命令3<br>
 多条命令执行</p>
-<p>-i  将结果保存到文件中</p>
+<p>-i  将结果保存到文件中，不加则显示在控制台</p>
 ]]></content>
     </entry>
     <entry>
