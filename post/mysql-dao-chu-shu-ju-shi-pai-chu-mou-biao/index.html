@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>oracle  spool | 七彩旋律</title>
+<title>mysql导出数据时排除某表 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1600823146288">
 
@@ -92,53 +92,20 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    oracle  spool
+                    mysql导出数据时排除某表
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-21 ·
+                        · 2020-09-23 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/QWN2NGUdC/" class="post-tags">
-                            # oracle
+                        <a href="https://mycodemylife.github.io/tag/0rwdwNxfN/" class="post-tags">
+                            # mysql
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <p>可用于导出数据</p>
-<pre><code class="language-sh">#!/bin/sh
-export NLS_LANG='SIMPLIFIED CHINESE_CHINA.UTF8'
-ORA_NAME=dbname
-ORA_USER=username
-ORA_PASS=pass
-sqlplus -S ${ORA_USER}/${ORA_PASS} &lt;&lt; EOF
-set echo off;
-set feedback off;
-set newpage none;
-set verify off;
-set pagesize 0;
-set term off;
-set trims on;
-set linesize 10000;
-set heading off;
-set timing off;
-set numwidth 38;
-SPOOL /tmp/demo.sql;
-SELECT
-        'insert into Idcard(name,idNumMd5,idNum,createTime,flag) values(&quot;'||
-        DWMC|| '&quot;,&quot;' ||
-        md5(ZJHM)|| '&quot;,&quot;' ||
-        ZJHM|| '&quot;,now(),&quot;' ||
-        JGDM||
-        '&quot;);'
-FROM
-       Table
-WHERE
-        ZT=1
-        and YL1=200;
-SPOOL OFF;
-exit
-EOF
+                    <pre><code>mysqldump -uroot -p123456 dbname --ignore-table=dbname.tables1  --ignore-table=dbname.table2 &gt;/tmp/dbname_timestamp.sql
 </code></pre>
 
                 </div>
@@ -148,8 +115,8 @@ EOF
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/php-webservice/" class="post-title gt-a-link">
-                    PHP 调用https类型webservice接口
+                <a href="https://mycodemylife.github.io/post/tong-ji-mou-shi-jian-duan-da-chu-de-ri-zhi-you-duo-shao-xing/" class="post-title gt-a-link">
+                    linux 命令 统计某时间段打出的日志有多少行
                 </a>
             </div>
         
