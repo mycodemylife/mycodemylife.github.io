@@ -2,13 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-09-23T01:05:51.582Z</updated>
+    <updated>2020-09-23T01:08:36.713Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[mysql只导出数据或导出结构]]></title>
+        <id>https://mycodemylife.github.io/post/mysql-zhi-dao-chu-shu-ju-huo-dao-chu-jie-gou/</id>
+        <link href="https://mycodemylife.github.io/post/mysql-zhi-dao-chu-shu-ju-huo-dao-chu-jie-gou/">
+        </link>
+        <updated>2020-09-23T01:07:33.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>导出结构不导出数据<br>
+mysqldump -d 数据库名 -uroot -p &gt; xxx.sql</p>
+</li>
+<li>
+<p>导出数据不导出结构<br>
+mysqldump -t 数据库名 -uroot -p &gt; xxx.sql</p>
+</li>
+<li>
+<p>导出数据和表结构<br>
+mysqldump 数据库名 -uroot -p &gt; xxx.sql</p>
+</li>
+<li>
+<p>导出特定表的结构<br>
+mysqldump -uroot -p -B 数据库名 --table 表名 &gt; xxx.sql</p>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[mysql导出数据时排除某表]]></title>
         <id>https://mycodemylife.github.io/post/mysql-dao-chu-shu-ju-shi-pai-chu-mou-biao/</id>
@@ -149,28 +175,6 @@ return map;
         </link>
         <updated>2020-08-25T01:01:10.000Z</updated>
         <content type="html"><![CDATA[<p>mysqld --install MySQL5.5  换一个名字就ok！！！</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Win下查看端口是否被占用以及所属程序]]></title>
-        <id>https://mycodemylife.github.io/post/win-xia-cha-kan-duan-kou-shi-fou-bei-zhan-yong-yi-ji-suo-shu-cheng-xu/</id>
-        <link href="https://mycodemylife.github.io/post/win-xia-cha-kan-duan-kou-shi-fou-bei-zhan-yong-yi-ji-suo-shu-cheng-xu/">
-        </link>
-        <updated>2020-08-25T00:57:37.000Z</updated>
-        <content type="html"><![CDATA[<ol>
-<li>
-<h3 id="查看端口号是否被占用">查看端口号是否被占用</h3>
-</li>
-</ol>
-<pre><code>netstat -ano|findstr 3306
-</code></pre>
-<ol start="2">
-<li>
-<h3 id="查看进程所属应用程序">查看进程所属应用程序</h3>
-</li>
-</ol>
-<pre><code>tasklist|findstr 1596
-</code></pre>
 ]]></content>
     </entry>
 </feed>
