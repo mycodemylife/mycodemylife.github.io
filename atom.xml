@@ -2,13 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-09-23T01:12:08.876Z</updated>
+    <updated>2020-11-11T02:28:49.320Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[shell脚本执行mysql操作]]></title>
+        <id>https://mycodemylife.github.io/post/shell-jiao-ben-zhi-xing-mysql-cao-zuo/</id>
+        <link href="https://mycodemylife.github.io/post/shell-jiao-ben-zhi-xing-mysql-cao-zuo/">
+        </link>
+        <updated>2020-11-11T02:26:52.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>mysql -uxxx -pxxxx &lt;&lt;EOF
+use $DB;
+
+CREATE TABLE $TB  (
+  AAA varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  BBB varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  INDEX ym_index(BBB) USING BTREE
+) ENGINE = MyISAM CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+EOF
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[shell脚本执行mysql命令并将结果赋值给变量]]></title>
+        <id>https://mycodemylife.github.io/post/shell-jiao-ben-zhi-xing-mysql-ming-ling-bing-jiang-jie-guo-fu-zhi-gei-bian-liang/</id>
+        <link href="https://mycodemylife.github.io/post/shell-jiao-ben-zhi-xing-mysql-ming-ling-bing-jiang-jie-guo-fu-zhi-gei-bian-liang/">
+        </link>
+        <updated>2020-11-11T02:20:37.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>TEMP=$(mysql -h192.168.x.x -uroot -p'xxxxxxxx' --database xxx  -s -e &quot;select flag from table&quot;)
+echo $TEMP
+</code></pre>
+<p>解释：-s 忽略表头  -e执行命令</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[mysql只导出数据或导出结构]]></title>
         <id>https://mycodemylife.github.io/post/mysql-zhi-dao-chu-shu-ju-huo-dao-chu-jie-gou/</id>
@@ -144,37 +174,6 @@ return map;
 </code></pre>
 <p>大体的流程就是改pom--改struts--改web.xml.<br>
 根据错误提示改asm，改commons-lang3，改spring版本</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[spring4.x不再提供 HibernateTemplate.saveOrUpdateAll(Collection) 的支持]]></title>
-        <id>https://mycodemylife.github.io/post/spring4x-bu-zai-ti-gong-hibernatetemplatesaveorupdateallcollection-de-zhi-chi/</id>
-        <link href="https://mycodemylife.github.io/post/spring4x-bu-zai-ti-gong-hibernatetemplatesaveorupdateallcollection-de-zhi-chi/">
-        </link>
-        <updated>2020-08-27T02:04:51.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="报错the-method-saveorupdateallcollection-is-undefined-for-the-type-hibernatetemplate">报错：The method saveOrUpdateAll(Collection) is undefined for the type HibernateTemplate</h2>
-<p>在spring2<API FOR SPRING2> 和spring 3的文档 <API FOR SPRING3>中会发现：从 spring2.5 起，官方就建议不要使用该方法，并且在 spring4.x中完全摈弃了这个方法。</p>
-<p>saveOrUpdateAll 的声明如下：</p>
-<pre><code>public void saveOrUpdateAll(Collection entities) throws DataAccessException
-</code></pre>
-<p>参数中接收一个Collection。</p>
-<p>原项目中代码如此：</p>
-<pre><code>super.getHibernateTemplate().saveOrUpdateAll(entitys);
-</code></pre>
-<p>可以修改为这样：</p>
-<pre><code>for(Object t : entities) {
-   getHibernateTemplate().saveOrUpdate(t);
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[phpstudy 启动导致本地的数据库服务丢失]]></title>
-        <id>https://mycodemylife.github.io/post/phpstudy-qi-dong-dao-zhi-ben-di-de-shu-ju-ku-fu-wu-diu-shi/</id>
-        <link href="https://mycodemylife.github.io/post/phpstudy-qi-dong-dao-zhi-ben-di-de-shu-ju-ku-fu-wu-diu-shi/">
-        </link>
-        <updated>2020-08-25T01:01:10.000Z</updated>
-        <content type="html"><![CDATA[<p>mysqld --install MySQL5.5  换一个名字就ok！！！</p>
 ]]></content>
     </entry>
 </feed>

@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>phpstudy 启动导致本地的数据库服务丢失 | 七彩旋律</title>
+<title>shell脚本执行mysql操作 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1605061713899">
 
@@ -92,20 +92,33 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    phpstudy 启动导致本地的数据库服务丢失
+                    shell脚本执行mysql操作
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-25 ·
+                        · 2020-11-11 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/EQxUBNp6j/" class="post-tags">
-                            # PHP
+                        <a href="https://mycodemylife.github.io/tag/keQaNn9TR/" class="post-tags">
+                            # shell
+                        </a>
+                    
+                        <a href="https://mycodemylife.github.io/tag/tp6gu5J5O/" class="post-tags">
+                            # linux
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <p>mysqld --install MySQL5.5  换一个名字就ok！！！</p>
+                    <pre><code>mysql -uxxx -pxxxx &lt;&lt;EOF
+use $DB;
+
+CREATE TABLE $TB  (
+  AAA varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  BBB varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  INDEX ym_index(BBB) USING BTREE
+) ENGINE = MyISAM CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+EOF
+</code></pre>
 
                 </div>
             </article>
@@ -114,8 +127,8 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/win-xia-cha-kan-duan-kou-shi-fou-bei-zhan-yong-yi-ji-suo-shu-cheng-xu/" class="post-title gt-a-link">
-                    Win下查看端口是否被占用以及所属程序
+                <a href="https://mycodemylife.github.io/post/shell-jiao-ben-zhi-xing-mysql-ming-ling-bing-jiang-jie-guo-fu-zhi-gei-bian-liang/" class="post-title gt-a-link">
+                    shell脚本执行mysql命令并将结果赋值给变量
                 </a>
             </div>
         
