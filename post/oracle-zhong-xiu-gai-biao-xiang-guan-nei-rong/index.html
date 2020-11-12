@@ -1,10 +1,10 @@
-<html lang="zh">
+<html>
 <head>
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>关于 - 七彩旋律</title>
+<title>Oracle中修改表相关内容 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1605161402469">
 
@@ -27,7 +27,8 @@
 <script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
@@ -88,14 +89,84 @@
 </nav>
 
     <div class="post-container">
-        <div class="post-detail">
+        <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
-                <div class="post-content">
+                <h2 class="post-title">
+                    Oracle中修改表相关内容
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-11-12 ·
+                    </time>
                     
+                        <a href="https://mycodemylife.github.io/tag/QWN2NGUdC/" class="post-tags">
+                            # oracle
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <table>
+<thead>
+<tr>
+<th style="text-align:center">字段的操作</th>
+<th style="text-align:center">操作的方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">修改列名（更新字段）</td>
+<td style="text-align:center">alter table 表名 rename column 原列名 to 新列名;</td>
+</tr>
+<tr>
+<td style="text-align:center">添加列</td>
+<td style="text-align:center">alter table 表名 add 列名 列类型;</td>
+</tr>
+<tr>
+<td style="text-align:center">删除列</td>
+<td style="text-align:center">alter table 表名 drop column 列名；</td>
+</tr>
+<tr>
+<td style="text-align:center">添加列并赋值</td>
+<td style="text-align:center">alter table 表名 add 列名 列类型 default 需要赋的值；</td>
+</tr>
+<tr>
+<td style="text-align:center">修改列的数据类型</td>
+<td style="text-align:center">alter table 表名 modify 列名 列数据类型；</td>
+</tr>
+<tr>
+<td style="text-align:center">增</td>
+<td style="text-align:center">insert into 表名 values(字段1，字段2，字段3，......);</td>
+</tr>
+<tr>
+<td style="text-align:center">删</td>
+<td style="text-align:center">delete from 表名 where 列名 = 值；</td>
+</tr>
+<tr>
+<td style="text-align:center">改（单个字段数据）</td>
+<td style="text-align:center">update 表名 set 列名 = 值 where 判断条件；（如：where id = 100）</td>
+</tr>
+<tr>
+<td style="text-align:center">改（多个字段数据）</td>
+<td style="text-align:center">update  表名   set 列名1 = 值1,     列名2       =  值2        where 判断条件；（如：update t_user set name = '张三'，password = '123456'  where id = 10;）</td>
+</tr>
+</tbody>
+</table>
+
                 </div>
             </article>
         </div>
-        <br>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://mycodemylife.github.io/post/shell-jiao-ben-zhi-xing-mysql-cao-zuo/" class="post-title gt-a-link">
+                    shell脚本执行mysql操作
+                </a>
+            </div>
+        
+
+        
+
         
             
                 <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/layer.min.js"></script>
@@ -127,11 +198,11 @@ script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.j
 head.appendChild(script);
 } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
             
+
             
         
 
         
-
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first"></div>
