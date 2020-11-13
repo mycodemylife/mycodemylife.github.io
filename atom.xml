@@ -2,13 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-11-13T01:28:44.701Z</updated>
+    <updated>2020-11-13T02:49:46.070Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[oracle导入表时跳过某些表以及导入方式]]></title>
+        <id>https://mycodemylife.github.io/post/oracle-dao-ru-biao-shi-tiao-guo-mou-xie-biao-yi-ji-dao-ru-fang-shi/</id>
+        <link href="https://mycodemylife.github.io/post/oracle-dao-ru-biao-shi-tiao-guo-mou-xie-biao-yi-ji-dao-ru-fang-shi/">
+        </link>
+        <updated>2020-11-13T02:42:30.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-在导入时目标表已经存在该如何把数据追加进入目标表中">1. 在导入时，目标表已经存在，该如何把数据追加进入目标表中</h2>
+<pre><code>当使用IMPDP完成数据库导入时，如遇到表已存在时，Oracle提供给我们如下四种处理方式：
+    SKIP：跳过已经存在的表，继续导入下一个对象，如果CONTENT设置了DATA_ONLY参数，则不能使用SKIP
+    APPEND：不会影响已存在的数据，在原有数据表的基础上继续增加数据
+    REPLACE：先删除掉表，然后创建表，最后完成数据插入
+    TRUNCATE：删除已存在的行，然后插入所有的数据
+我们需要在导入语句中使用TABLE_EXISTS_ACTION参数指定导入数据方式，方法如下
+    impdp zcgl/system dumpfile=GUIDONG.DMP  directory=data_pump_dir REMAP_TABLESPACE=ASSETS:ZCGL REMAP_SCHEMA=TESTUSER:ZCGL TABLE_EXISTS_ACTION=APPEND logfile=TEST20191111.log
+</code></pre>
+<h2 id="2-导入时跳过某些表">2. 导入时跳过某些表</h2>
+<pre><code>一般剔除操作使用的是exclude，在剔除表时，使用的命令为：
+exclude=table:&quot;in('table_name1','table_name2')&quot;
+在使用过程中报语法错误，百度发现需要对&quot;,',(,)分别进行转意，命令修改为
+exclude=table:\&quot;in\(\'table_name1\',\'table_name2\'\)\&quot;后执行成功。</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[linux下tmp文件会被清理]]></title>
         <id>https://mycodemylife.github.io/post/linux-xia-tmp-wen-jian-hui-bei-qing-li/</id>
@@ -184,28 +206,6 @@ print(type(strstr))</p>
 print(byte2str,type(byte2str))</p>
 <p>str2bytes = strstr.encode(encoding='UTF-8')  # 字符串转字节数组<br>
 print(str2bytes,type(str2bytes))</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python调用webservice接口]]></title>
-        <id>https://mycodemylife.github.io/post/python-diao-yong-webservice-jie-kou/</id>
-        <link href="https://mycodemylife.github.io/post/python-diao-yong-webservice-jie-kou/">
-        </link>
-        <updated>2020-09-11T01:23:41.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="导包">导包</h3>
-<pre><code>from suds.client import Client
-</code></pre>
-<h3 id="代码">代码</h3>
-<pre><code>url = &quot;http://domain?wsdl&quot;
-headers = {'Content-Type': 'application/soap+xml;charset=&quot;UTF-8&quot;'}
-client = Client(url,headers=headers,faults=False,timeout=15)
-client.set_options(location=&quot;http://domain?wsdl&quot;)
-</code></pre>
-<p>注意：可以指定location，这会覆盖从接口获得的location</p>
-<h3 id="结果">结果</h3>
-<pre><code>resp = client.service.xxxx_getXXXX(param)
-print(resp)
-</code></pre>
 ]]></content>
     </entry>
 </feed>
