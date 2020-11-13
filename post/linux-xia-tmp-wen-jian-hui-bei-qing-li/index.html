@@ -1,10 +1,10 @@
-<html lang="zh">
+<html>
 <head>
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>关于 - 七彩旋律</title>
+<title>linux下tmp文件会被清理 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1605230917559">
 
@@ -27,7 +27,8 @@
 <script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
@@ -88,14 +89,42 @@
 </nav>
 
     <div class="post-container">
-        <div class="post-detail">
+        <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
-                <div class="post-content">
+                <h2 class="post-title">
+                    linux下tmp文件会被清理
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-11-13 ·
+                    </time>
                     
+                        <a href="https://mycodemylife.github.io/tag/tp6gu5J5O/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>查看规则：</p>
+<pre><code>more /etc/cron.daily/tmpwatch
+</code></pre>
+<p>如果你想将强制删除30天没有访问的文件改为7天，只需将里面的720改为189即可。</p>
+
                 </div>
             </article>
         </div>
-        <br>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://mycodemylife.github.io/post/oracle-zhong-xiu-gai-biao-xiang-guan-nei-rong/" class="post-title gt-a-link">
+                    Oracle中修改表相关内容
+                </a>
+            </div>
+        
+
+        
+
         
             
                 <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/layer.min.js"></script>
@@ -127,11 +156,11 @@ script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.j
 head.appendChild(script);
 } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
             
+
             
         
 
         
-
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first"></div>

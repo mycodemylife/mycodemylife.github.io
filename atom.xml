@@ -2,13 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-11-12T06:10:40.001Z</updated>
+    <updated>2020-11-13T01:28:44.701Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[linux下tmp文件会被清理]]></title>
+        <id>https://mycodemylife.github.io/post/linux-xia-tmp-wen-jian-hui-bei-qing-li/</id>
+        <link href="https://mycodemylife.github.io/post/linux-xia-tmp-wen-jian-hui-bei-qing-li/">
+        </link>
+        <updated>2020-11-13T01:25:41.000Z</updated>
+        <content type="html"><![CDATA[<p>查看规则：</p>
+<pre><code>more /etc/cron.daily/tmpwatch
+</code></pre>
+<p>如果你想将强制删除30天没有访问的文件改为7天，只需将里面的720改为189即可。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Oracle中修改表相关内容]]></title>
         <id>https://mycodemylife.github.io/post/oracle-zhong-xiu-gai-biao-xiang-guan-nei-rong/</id>
@@ -194,21 +206,6 @@ client.set_options(location=&quot;http://domain?wsdl&quot;)
 <pre><code>resp = client.service.xxxx_getXXXX(param)
 print(resp)
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Markdown 文档生成工具]]></title>
-        <id>https://mycodemylife.github.io/post/markdown-wen-dang-sheng-cheng-gong-ju/</id>
-        <link href="https://mycodemylife.github.io/post/markdown-wen-dang-sheng-cheng-gong-ju/">
-        </link>
-        <updated>2020-09-01T01:54:45.000Z</updated>
-        <content type="html"><![CDATA[<ol>
-<li>loppo: 非常简单的静态站点生成器</li>
-<li>idoc：简单的文档生成工具</li>
-<li>gitbook：大名鼎鼎的文档协作工具</li>
-<li>docsify：一个神奇的文档站点生成器，简单轻巧，无需静态构建html</li>
-</ol>
-<p>http://www.mamicode.com/info-detail-2662951.html</p>
 ]]></content>
     </entry>
 </feed>
