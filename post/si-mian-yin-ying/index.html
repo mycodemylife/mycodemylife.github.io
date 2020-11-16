@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>excel的宏：合并多个文件到一个文件中 | 七彩旋律</title>
+<title>四面阴影 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1605492387796">
 
@@ -92,82 +92,43 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    excel的宏：合并多个文件到一个文件中
+                    四面阴影
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
                         · 2020-11-16 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/m9r9aaQef/" class="post-tags">
-                            # excel
+                        <a href="https://mycodemylife.github.io/tag/1Nqxel_Ze/" class="post-tags">
+                            # css
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <pre><code>Sub 多文件合并能够自由选择文件夹()
-Dim arr()
-Dim wb As Workbook
-Dim sht As Worksheet
-arr = Application.GetOpenFilename(&quot;Excel文件,*.xls*&quot;, 2, , , True)
-
-Application.ScreenUpdating = False '关闭屏幕刷新
-
-If arr(1) &lt;&gt; &quot;False&quot; Then
-
-    For i = LBound(arr) To UBound(arr)
-        Set wb = Workbooks.Open(arr(i))
-        If i = 1 Then
-            For Each sht In wb.Sheets
-                '以下4行是壳内的命令，用于复制打开的工作簿
-                If InStr(sht.Name, &quot;Sheet1&quot;) &gt; 0 Then
-                    irow = sht.Range(&quot;A65536&quot;).End(xlUp).Row
-                    irow1 = ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;A65536&quot;).End(xlUp).Row
-                    sht.Range(&quot;a1:z&quot; &amp; irow).Copy ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;a&quot; &amp; irow1)
-                    wb.Close False '关闭工作簿并且不保存
-                End If
-            Next
-        Else
-            For Each sht In wb.Sheets
-                '以下4行是壳内的命令，用于复制打开的工作簿
-                If InStr(sht.Name, &quot;Sheet1&quot;) &gt; 0 Then
-                    irow = sht.Range(&quot;A65536&quot;).End(xlUp).Row
-                    If irow &gt; 1 Then
-                        irow1 = ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;A65536&quot;).End(xlUp).Row + 1
-                        sht.Range(&quot;a2:z&quot; &amp; irow).Copy ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;a&quot; &amp; irow1)
-                    End If
-                    wb.Close False '关闭工作簿并且不保存
-                End If
-            Next
-        End If
-    Next
-End If
-
-MsgBox &quot;执行完毕！&quot;
-Application.ScreenUpdating = True '打开屏幕刷新
-'MsgBox &quot;下一步，请点击'是',否则会出现严重错误！&quot;
-
-
-'ThisWorkbook.SaveAs Filename:=&quot;result&quot;, FileFormat:=XlFileFormat.xlOpenXMLStrictWorkbook
-'ThisWorkbook.SaveCopyAs Filename:=&quot;result.xlsx&quot;
-
-Set NewBook = Workbooks.Add
-NewBook.SaveAs Filename:=&quot;result&quot;, FileFormat:=XlFileFormat.xlOpenXMLStrictWorkbook
-allrow = ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;A65536&quot;).End(xlUp).Row
-ThisWorkbook.Sheets(&quot;Sheet1&quot;).Range(&quot;a1:z&quot; &amp; allrow).Copy NewBook.Sheets(&quot;Sheet1&quot;).Range(&quot;a1&quot;)
-ThisWorkbook.Save
-NewBook.Save
-
-''ThisWorkbook.Close
-Application.Quit
-
-End Sub
+                    <pre><code>四面阴影：
+.g-box-shadow-animation:hover,g-box-shadow:hover {
+    box-shadow: 1px 1px 8px 0px #535050;
+    -webkit-box-shadow: 1px 1px 8px 0px #535050;
+    -moz-box-shadow: 1px 1px 8px 0px #535050;
+    -o-box-shadow: 1px 1px 8px 0px #535050;
+    -ms-box-shadow: 1px 1px 8px 0px #535050;
+}
+.g-box-shadow-animation {
+    transition: all .7s ease-out;
+}
 </code></pre>
 
                 </div>
             </article>
         </div>
 
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://mycodemylife.github.io/post/oracle-dao-ru-biao-shi-tiao-guo-mou-xie-biao-yi-ji-dao-ru-fang-shi/" class="post-title gt-a-link">
+                    oracle导入表时跳过某些表以及导入方式
+                </a>
+            </div>
         
 
         

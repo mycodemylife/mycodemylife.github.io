@@ -2,13 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-11-16T01:40:06.678Z</updated>
+    <updated>2020-11-16T02:06:31.833Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[四面阴影]]></title>
+        <id>https://mycodemylife.github.io/post/si-mian-yin-ying/</id>
+        <link href="https://mycodemylife.github.io/post/si-mian-yin-ying/">
+        </link>
+        <updated>2020-11-16T02:05:49.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>四面阴影：
+.g-box-shadow-animation:hover,g-box-shadow:hover {
+    box-shadow: 1px 1px 8px 0px #535050;
+    -webkit-box-shadow: 1px 1px 8px 0px #535050;
+    -moz-box-shadow: 1px 1px 8px 0px #535050;
+    -o-box-shadow: 1px 1px 8px 0px #535050;
+    -ms-box-shadow: 1px 1px 8px 0px #535050;
+}
+.g-box-shadow-animation {
+    transition: all .7s ease-out;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[oracle导入表时跳过某些表以及导入方式]]></title>
         <id>https://mycodemylife.github.io/post/oracle-dao-ru-biao-shi-tiao-guo-mou-xie-biao-yi-ji-dao-ru-fang-shi/</id>
@@ -191,21 +211,6 @@ mysqldump -uroot -p -B 数据库名 --table 表名 &gt; xxx.sql</p>
 <p>命令格式5：sed -e 命令1 -e 命令2 -e 命令3<br>
 多条命令执行</p>
 <p>-i  将结果保存到文件中，不加则显示在控制台</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python中字符串和字节数组转换]]></title>
-        <id>https://mycodemylife.github.io/post/python-zhong-zi-fu-chuan-he-zi-jie-shu-zu-zhuan-huan/</id>
-        <link href="https://mycodemylife.github.io/post/python-zhong-zi-fu-chuan-he-zi-jie-shu-zu-zhuan-huan/">
-        </link>
-        <updated>2020-09-11T01:30:03.000Z</updated>
-        <content type="html"><![CDATA[<p>byte = b&quot;abcd&quot;  # 字节数组<br>
-strstr = &quot;efgh&quot;  # 字符串<br>
-print(type(strstr))</p>
-<p>byte2str = byte.decode(encoding='UTF-8') # 字节数组转字符串<br>
-print(byte2str,type(byte2str))</p>
-<p>str2bytes = strstr.encode(encoding='UTF-8')  # 字符串转字节数组<br>
-print(str2bytes,type(str2bytes))</p>
 ]]></content>
     </entry>
 </feed>
