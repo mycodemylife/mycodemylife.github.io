@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>PHP 调用https类型webservice接口 | 七彩旋律</title>
+<title>mysql导入sql文件 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1607666868539">
 
@@ -92,81 +92,20 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    PHP 调用https类型webservice接口
+                    mysql导入sql文件
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-08-20 ·
+                        · 2020-12-11 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/EQxUBNp6j/" class="post-tags">
-                            # PHP
+                        <a href="https://mycodemylife.github.io/tag/0rwdwNxfN/" class="post-tags">
+                            # mysql
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <pre><code class="language-php">$opts = array (
-			'ssl' =&gt; array (
-					'ciphers' =&gt; 'RC4-SHA',
-					'verify_peer' =&gt; false,
-					'verify_peer_name' =&gt; false 
-			) 
-	);
-	// SOAP 1.2 client
-	$params = array (
-			'encoding' =&gt; 'UTF-8',
-			'verifypeer' =&gt; false,
-			'verifyhost' =&gt; false,
-			'soap_version' =&gt; SOAP_1_1,
-			'trace' =&gt; 1,
-			'exceptions' =&gt; 1,
-			&quot;connection_timeout&quot; =&gt; 180,
-			'stream_context' =&gt; stream_context_create ( $opts ),
-			'local_cert' =&gt; $local_cert, // client证书信息
-			'passphrase' =&gt; 'client'  // 密码
-		);
- 
-	;
-	$soap = new SoapClient ( $wsdl, $params );
-例子：
-	&lt;?php
-header(&quot;content-type:text/html;charset=utf-8&quot;);
-try {
-	// 要请求的内容 打成xml
-	//xml加密
-	//密钥 
-	//偏移量 
-	//随机数 
-	//用户
-    $client = new SoapClient(&quot;https://192.168.3.12:8866/epic/query?wsdl&quot;,
-        array(
-            &quot;stream_context&quot; =&gt; stream_context_create(
-                array(
-                    'ssl' =&gt; array(
-                        'verify_peer' =&gt; false,
-                        'verify_peer_name' =&gt; false,
-                    )
-                )
-            )
-        )
-    );
-    //print_r($client-&gt;__getFunctions());
-    //print_r($client-&gt;__getTypes());
-
-    $parm = array('content' =&gt; 'inKkcE+e4h+1q5Rpm8hAqw0Ph8yYx3hlhUO/1dJqrhm4Y4p/ot7yhgnzg5cQj+3Whac+3gx5yfs1KVX/1U9TwugtKtMdRFwPxPbF27i+BmAh3gZN6SSMCvbvVmi2EBRgRxJEHBMrk52DCpUtC21nn4ECvkBUKBcf0vCnAVfB4Xs=', 'contentHash' =&gt; '0lh0DJh3A2j1ei7NhEAnYA==', 'random' =&gt; 'AUMIxMlN4IoZTuh3Gh6y', 'loginName' =&gt; 'glpt_user01');
-    $result = $client-&gt;epic_ent_person_relation($parm);
-    //print_r($result);
-
-    //将stdclass object的$result转换为array
-    $result = get_object_vars($result);
-    //输出结果 
-    echo $result[&quot;return&quot;];
-   
-
-} catch (SOAPFault $e) {
-    print $e;
-}
-?&gt;
+                    <pre><code>mysql -uroot -proot database &lt; sql.sql
 </code></pre>
 
                 </div>
@@ -176,8 +115,8 @@ try {
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/php_change/" class="post-title gt-a-link">
-                    php证件照换底色
+                <a href="https://mycodemylife.github.io/post/div-bian-da/" class="post-title gt-a-link">
+                    div变大
                 </a>
             </div>
         

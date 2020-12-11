@@ -2,13 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-11-16T02:06:31.833Z</updated>
+    <updated>2020-12-11T06:07:55.680Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[mysql导入sql文件]]></title>
+        <id>https://mycodemylife.github.io/post/mysql-dao-ru-sql-wen-jian/</id>
+        <link href="https://mycodemylife.github.io/post/mysql-dao-ru-sql-wen-jian/">
+        </link>
+        <updated>2020-12-11T06:06:05.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>mysql -uroot -proot database &lt; sql.sql
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[div变大]]></title>
+        <id>https://mycodemylife.github.io/post/div-bian-da/</id>
+        <link href="https://mycodemylife.github.io/post/div-bian-da/">
+        </link>
+        <updated>2020-11-16T02:09:44.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>.g-change-big:hover {
+    transform: scaleX(1.05) scaleY(1.05) scaleZ(1);
+    -webkit-transform: scaleX(1.05) scaleY(1.05) scaleZ(1);
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[四面阴影]]></title>
         <id>https://mycodemylife.github.io/post/si-mian-yin-ying/</id>
@@ -181,36 +204,6 @@ mysqldump -uroot -p -B 数据库名 --table 表名 &gt; xxx.sql</p>
         <updated>2020-09-23T01:04:09.000Z</updated>
         <content type="html"><![CDATA[<pre><code>mysqldump -uroot -p123456 dbname --ignore-table=dbname.tables1  --ignore-table=dbname.table2 &gt;/tmp/dbname_timestamp.sql
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[linux 命令 统计某时间段打出的日志有多少行]]></title>
-        <id>https://mycodemylife.github.io/post/tong-ji-mou-shi-jian-duan-da-chu-de-ri-zhi-you-duo-shao-xing/</id>
-        <link href="https://mycodemylife.github.io/post/tong-ji-mou-shi-jian-duan-da-chu-de-ri-zhi-you-duo-shao-xing/">
-        </link>
-        <updated>2020-09-15T06:43:42.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>sed -n '/Tue Sep 15 00:00:00/,/Tue Sep 15 23:59:59/p' catalina.out |grep '调用方法'|wc -l
-</code></pre>
-<p>日志中有输出时间，然后就是取时间段，再过滤，然后统计行数</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[sed命令进行字符串替换]]></title>
-        <id>https://mycodemylife.github.io/post/sed-ming-ling-jin-xing-zi-fu-chuan-ti-huan/</id>
-        <link href="https://mycodemylife.github.io/post/sed-ming-ling-jin-xing-zi-fu-chuan-ti-huan/">
-        </link>
-        <updated>2020-09-14T05:36:45.000Z</updated>
-        <content type="html"><![CDATA[<p>命令格式1：sed -i  's/原字符串/新字符串/' 文件<br>
-只匹配第一个符合条件的</p>
-<p>命令格式2：sed -i 's/原字符串/新字符串/g' 文件<br>
-匹配所有符合条件的</p>
-<p>命令格式3：sed -i '行号c 新字符串' 文件<br>
-匹配某一行</p>
-<p>命令格式4：sed -i '起始行号，终止行号c 新字符串' 文件<br>
-匹配从某一行到某一行</p>
-<p>命令格式5：sed -e 命令1 -e 命令2 -e 命令3<br>
-多条命令执行</p>
-<p>-i  将结果保存到文件中，不加则显示在控制台</p>
 ]]></content>
     </entry>
 </feed>
