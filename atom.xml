@@ -2,13 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mycodemylife.github.io</id>
     <title>七彩旋律</title>
-    <updated>2020-12-11T06:07:55.680Z</updated>
+    <updated>2020-12-22T05:30:41.161Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mycodemylife.github.io"/>
     <link rel="self" href="https://mycodemylife.github.io/atom.xml"/>
     <logo>https://mycodemylife.github.io/images/avatar.png</logo>
     <icon>https://mycodemylife.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 七彩旋律</rights>
+    <entry>
+        <title type="html"><![CDATA[MariaDB设置初始化密码及修改密码]]></title>
+        <id>https://mycodemylife.github.io/post/mariadb-she-zhi-chu-shi-hua-mi-ma-ji-xiu-gai-mi-ma/</id>
+        <link href="https://mycodemylife.github.io/post/mariadb-she-zhi-chu-shi-hua-mi-ma-ji-xiu-gai-mi-ma/">
+        </link>
+        <updated>2020-12-22T05:23:53.000Z</updated>
+        <content type="html"><![CDATA[<p>默认情况下，新安装的 mariadb 的密码为空，在shell终端直接输入 mysql 就能登陆数据库。<br>
+如果是刚安装第一次使用，请使用 mysql_secure_installation 命令初始化。</p>
+<h3 id="mariadb设置初始化密码及修改密码">MariaDB设置初始化密码及修改密码</h3>
+<p>方法一：<br>
+[root@localhost ~]# mysql -uroot<br>
+MariaDB [(none)]&gt; use mysql;<br>
+MariaDB [mysql]&gt; UPDATE mysql.user SET password = PASSWORD('newpassward') WHERE user = 'root';<br>
+MariaDB [mysql]&gt; FLUSH PRIVILEGES;</p>
+<p>方法二：<br>
+[root@localhost ~]# mysql -uroot<br>
+MariaDB [(none)]&gt; use mysql;<br>
+MariaDB [mysql]&gt; SET password=PASSWORD('newpassward');<br>
+MariaDB [mysql]&gt; FLUSH PRIVILEGES;</p>
+<p>方法三：<br>
+[root@localhost ~]# mysqladmin -u root password 'newpassword'<br>
+如果root已经设置过密码，采用如下方法<br>
+[root@localhost ~]# mysqladmin -u root -p 'oldpassword' password 'newpassword'</p>
+<h3 id="远程登录">远程登录</h3>
+<p>root账户中的host项是localhost表示该账号只能进行本地登录，我们需要修改权限，输入命令：<br>
+GRANT ALL PRIVILEGES ON <em>.</em> TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;<br>
+修改权限。%表示针对所有IP<br>
+最后别忘了<br>
+FLUSH PRIVILEGES;</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[mysql导入sql文件]]></title>
         <id>https://mycodemylife.github.io/post/mysql-dao-ru-sql-wen-jian/</id>
@@ -194,16 +225,6 @@ mysqldump 数据库名 -uroot -p &gt; xxx.sql</p>
 mysqldump -uroot -p -B 数据库名 --table 表名 &gt; xxx.sql</p>
 </li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[mysql导出数据时排除某表]]></title>
-        <id>https://mycodemylife.github.io/post/mysql-dao-chu-shu-ju-shi-pai-chu-mou-biao/</id>
-        <link href="https://mycodemylife.github.io/post/mysql-dao-chu-shu-ju-shi-pai-chu-mou-biao/">
-        </link>
-        <updated>2020-09-23T01:04:09.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>mysqldump -uroot -p123456 dbname --ignore-table=dbname.tables1  --ignore-table=dbname.table2 &gt;/tmp/dbname_timestamp.sql
-</code></pre>
 ]]></content>
     </entry>
 </feed>

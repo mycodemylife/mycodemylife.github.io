@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Oracle中修改表相关内容 | 七彩旋律</title>
+<title>MariaDB设置初始化密码及修改密码 | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1608615036399">
 
@@ -92,65 +92,42 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    Oracle中修改表相关内容
+                    MariaDB设置初始化密码及修改密码
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-11-12 ·
+                        · 2020-12-22 ·
                     </time>
                     
-                        <a href="https://mycodemylife.github.io/tag/QWN2NGUdC/" class="post-tags">
-                            # oracle
+                        <a href="https://mycodemylife.github.io/tag/0rwdwNxfN/" class="post-tags">
+                            # mysql
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <table>
-<thead>
-<tr>
-<th style="text-align:center">字段的操作</th>
-<th style="text-align:center">操作的方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">修改列名（更新字段）</td>
-<td style="text-align:center">alter table 表名 rename column 原列名 to 新列名;</td>
-</tr>
-<tr>
-<td style="text-align:center">添加列</td>
-<td style="text-align:center">alter table 表名 add 列名 列类型;</td>
-</tr>
-<tr>
-<td style="text-align:center">删除列</td>
-<td style="text-align:center">alter table 表名 drop column 列名；</td>
-</tr>
-<tr>
-<td style="text-align:center">添加列并赋值</td>
-<td style="text-align:center">alter table 表名 add 列名 列类型 default 需要赋的值；</td>
-</tr>
-<tr>
-<td style="text-align:center">修改列的数据类型</td>
-<td style="text-align:center">alter table 表名 modify 列名 列数据类型；</td>
-</tr>
-<tr>
-<td style="text-align:center">增</td>
-<td style="text-align:center">insert into 表名 values(字段1，字段2，字段3，......);</td>
-</tr>
-<tr>
-<td style="text-align:center">删</td>
-<td style="text-align:center">delete from 表名 where 列名 = 值；</td>
-</tr>
-<tr>
-<td style="text-align:center">改（单个字段数据）</td>
-<td style="text-align:center">update 表名 set 列名 = 值 where 判断条件；（如：where id = 100）</td>
-</tr>
-<tr>
-<td style="text-align:center">改（多个字段数据）</td>
-<td style="text-align:center">update  表名   set 列名1 = 值1,     列名2       =  值2        where 判断条件；（如：update t_user set name = '张三'，password = '123456'  where id = 10;）</td>
-</tr>
-</tbody>
-</table>
+                    <p>默认情况下，新安装的 mariadb 的密码为空，在shell终端直接输入 mysql 就能登陆数据库。<br>
+如果是刚安装第一次使用，请使用 mysql_secure_installation 命令初始化。</p>
+<h3 id="mariadb设置初始化密码及修改密码">MariaDB设置初始化密码及修改密码</h3>
+<p>方法一：<br>
+[root@localhost ~]# mysql -uroot<br>
+MariaDB [(none)]&gt; use mysql;<br>
+MariaDB [mysql]&gt; UPDATE mysql.user SET password = PASSWORD('newpassward') WHERE user = 'root';<br>
+MariaDB [mysql]&gt; FLUSH PRIVILEGES;</p>
+<p>方法二：<br>
+[root@localhost ~]# mysql -uroot<br>
+MariaDB [(none)]&gt; use mysql;<br>
+MariaDB [mysql]&gt; SET password=PASSWORD('newpassward');<br>
+MariaDB [mysql]&gt; FLUSH PRIVILEGES;</p>
+<p>方法三：<br>
+[root@localhost ~]# mysqladmin -u root password 'newpassword'<br>
+如果root已经设置过密码，采用如下方法<br>
+[root@localhost ~]# mysqladmin -u root -p 'oldpassword' password 'newpassword'</p>
+<h3 id="远程登录">远程登录</h3>
+<p>root账户中的host项是localhost表示该账号只能进行本地登录，我们需要修改权限，输入命令：<br>
+GRANT ALL PRIVILEGES ON <em>.</em> TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;<br>
+修改权限。%表示针对所有IP<br>
+最后别忘了<br>
+FLUSH PRIVILEGES;</p>
 
                 </div>
             </article>
@@ -159,8 +136,8 @@
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://mycodemylife.github.io/post/shell-jiao-ben-zhi-xing-mysql-cao-zuo/" class="post-title gt-a-link">
-                    shell脚本执行mysql操作
+                <a href="https://mycodemylife.github.io/post/mysql-dao-ru-sql-wen-jian/" class="post-title gt-a-link">
+                    mysql导入sql文件
                 </a>
             </div>
         
