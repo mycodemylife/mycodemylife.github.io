@@ -1,10 +1,10 @@
-<html lang="zh">
+<html>
 <head>
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>关于 - 七彩旋律</title>
+<title>zip、unzip、tar | 七彩旋律</title>
 
 <link rel="shortcut icon" href="https://mycodemylife.github.io/favicon.ico?v=1608685371146">
 
@@ -27,7 +27,8 @@
 <script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
@@ -88,14 +89,63 @@
 </nav>
 
     <div class="post-container">
-        <div class="post-detail">
+        <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
-                <div class="post-content">
+                <h2 class="post-title">
+                    zip、unzip、tar
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-12-23 ·
+                    </time>
                     
+                        <a href="https://mycodemylife.github.io/tag/tp6gu5J5O/" class="post-tags">
+                            # linux
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h3 id="zip">zip</h3>
+<p>-r 递归压缩，将指定目录下的所有文件以及子目录全部压缩<br>
+-d 从压缩文件内删除指定的文件<br>
+-i “文件列表” 只压缩文件列表中的文件<br>
+-x “文件列表” 压缩时排除文件列表中指定的文件<br>
+-u 更新文件到压缩文件中<br>
+-m 将文件加入压缩文件压缩后，删除原始文件，即把文件移到压缩文件中<br>
+-F 尝试修复损坏的压缩文件<br>
+-T 检查压缩文件内的每个文件是否正确无误<br>
+-9 更好的压缩<br>
+-q 安静模式</p>
+<pre><code>zip -rq test.zip test -x test/logs/*
+</code></pre>
+<h3 id="unzip">unzip</h3>
+<p>-v	执行时显示详细的信息<br>
+-n	解压缩时不要覆盖原有的文件<br>
+-o	不必先询问用户，unzip执行后覆盖原有的文件<br>
+-q	执行时不显示任何信息<br>
+-d&lt;目录&gt;	指定文件解压缩后所要存储的目录<br>
+-x&lt;文件&gt;	指定不要处理.zip压缩文件中的哪些文件</p>
+<h3 id="tar">tar</h3>
+<p>解压：tar -zxvf test.tar.gz<br>
+压缩：tar -zcvf test.tar.gz  test<br>
+排除目录中的某些文件:tar --exclude=目录名/* 或者 文件名 -zcvf 备份文件名.tgz 目录名<br>
+<a href="http://linux.51yip.com/search/tar">详解</a></p>
+
                 </div>
             </article>
         </div>
-        <br>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://mycodemylife.github.io/post/mariadb-she-zhi-chu-shi-hua-mi-ma-ji-xiu-gai-mi-ma/" class="post-title gt-a-link">
+                    MariaDB设置初始化密码及修改密码
+                </a>
+            </div>
+        
+
+        
+
         
             
                 <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/layer.min.js"></script>
@@ -127,11 +177,11 @@ script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.j
 head.appendChild(script);
 } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
             
+
             
         
 
         
-
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first"></div>
